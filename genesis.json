@@ -1,28 +1,33 @@
 {
-    "config": {
-      "chainId": 100828,
-      "homesteadBlock": 0,
-      "eip150Block": 0,
-      "eip155Block": 0,
-      "eip158Block": 0,
-      "byzantiumBlock": 0,
-      "constantinopleBlock": 0,
-      "petersburgBlock": 0,
-      "istanbulBlock": 0,
-      "muirGlacierBlock": 0,
-      "berlinBlock": 0,
-      "londonBlock": 0,
-      "arrowGlacierBlock": 0,
-      "grayGlacierBlock": 0,
-      "clique": {
-        "period": 3,
-        "epoch": 30000
-      }
-    },
-    "difficulty": "1",
-    "gasLimit": "800000000",
-    "extradata": "0x000000000000000000000000000000000000000000000000000000000000000027f04b08e94168b52547ee9e1c3a96f34a3833750000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
-    "alloc": {
-      "aefAE4E9e58770159B16f56b871849E0215A1038": { "balance": "0xDBB8481A7362102DA000000" }
+  "config": {
+    "chainId": 100828,
+    "homesteadBlock": 0,
+    "eip150Block": 0,
+    "eip155Block": 0,
+    "eip158Block": 0,
+    "byzantiumBlock": 0,
+    "constantinopleBlock": 0,
+    "petersburgBlock": 0,
+    "istanbulBlock": 0,
+    "muirGlacierBlock": 0,
+    "berlinBlock": 0,
+    "londonBlock": 0,
+    "arrowGlacierBlock": 0,
+    "grayGlacierBlock": 0,
+    "clique": {
+      "period": 3,
+      "epoch": 30000
     }
+  },
+  "difficulty": "1",
+  "gasLimit": "800000000",
+  "extradata": "0x0000000000000000000000000000000000000000000000000000000000000000c98d73809e1bfdf231f829963804b2b3248e43e00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "alloc": {
+    "aefAE4E9e58770159B16f56b871849E0215A1038": { "balance": "0xDBB8481A7362102DA000000" }
   }
+}
+
+geth --mine --networkid 100828 --gcmode=archive --syncmode=full --state.scheme=path --miner.gasprice=100000000000 --nodiscover --unlock 0xC98D73809E1BfdF231F829963804b2b3248E43E0 --password /root/pw.tt --allow-insecure-unlock
+
+
+geth --syncmode full --networkid 100828 --allow-insecure-unlock --unlock 0xC98D73809E1BfdF231F829963804b2b3248E43E0 --password /root/pw.tt --mine --snapshot=false --miner.etherbase 0xC98D73809E1BfdF231F829963804b2b3248E43E0 --ws --ws.origins "*" --http.vhosts="*" --http  --http.corsdomain "*"  --http.api personal,eth,net,web3,txpool,miner,rpc,admin,debug
